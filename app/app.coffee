@@ -1,10 +1,14 @@
 express = require 'express'
+auth = require './users/authentication'
 
-PUBLIC = "#{__dirname}/public"
+app = express()
+app.use express.basicAuth auth
+app.use express.static "#{__dirname}/public"
 
-appServer = express()
-appServer.use express.static PUBLIC
+#demonstrates where user is located
+app.get '/test', (req, res) ->
+    res.send req.user
 
-appServer.listen 3000
+app.listen 3000
 console.log 'listening on http://localhost:3000'
 
