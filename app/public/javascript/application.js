@@ -10,7 +10,7 @@
     console.log('Launching Draft App');
     ViewPane.initialize();
     Router.initialize();
-    return Router.goTo('signUp');
+    return Router.goTo('dashboard');
   });
 
 }).call(this);

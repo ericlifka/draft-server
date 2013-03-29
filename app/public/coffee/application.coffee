@@ -7,5 +7,5 @@ Loader.addLoadScript ->
     ViewPane.initialize()
     Router.initialize()
 
-    Router.goTo 'signUp'
+    Router.goTo 'dashboard'
 
