@@ -18,7 +18,7 @@ class Loader
         @modules[modName] = modObject
 
     require: (modName) ->
-        if !@modules[modName]
+        if not @modules[modName]
             throw "Unregistered module: #{modName}"
         @modules[modName]
 
