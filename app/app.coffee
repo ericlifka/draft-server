@@ -1,7 +1,11 @@
 express = require 'express'
-auth = require './users/authentication'
+auth = require './server/users/authentication'
+pages = require './server/pages'
 
 app = express()
+app.get '/', (req, res) ->
+    res.send 'hi'
+
 app.use express.basicAuth auth
 app.use express.static "#{__dirname}/public"
 
