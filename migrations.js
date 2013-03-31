@@ -1,6 +1,6 @@
 var mongo = require('mongodb'),
     Db = mongo.Db,
-    connString = "mongodb://localhost/DraftServer";
+    connString = "mongodb://localhost/DraftServer?w=1";
 
 Db.connect(connString, function(err, db) {
     var users = db.collection("users");
