@@ -3,6 +3,7 @@ users = require './server/users'
 pages = require './server/pages'
 
 app = express()
+app.use express.bodyParser()
 app.get '/', pages.welcome
 app.get '/signup', pages.signup
 app.post '/signup', users.register
