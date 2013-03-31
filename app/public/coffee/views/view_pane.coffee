@@ -15,6 +15,10 @@ class ViewPane
         @views[viewName]
 
     render: (viewName, config={}, target=@pane) ->
+        @resetView()
+        @renderSub viewName, config, target
+
+    renderSub: (viewName, config={}, target=@pane) ->
         view = @getView viewName
         view target, config
 

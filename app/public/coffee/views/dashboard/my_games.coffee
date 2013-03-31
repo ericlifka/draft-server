@@ -1,5 +1,8 @@
-Loader.register 'views/dashboard/myGames', (viewPane, config) ->
-    $ = Loader.require 'jQuery'
+$ = Loader.require 'jQuery'
 
-    $('<h3>My Games</h3>').appendTo viewPane
+Loader.register 'views/dashboard/myGames', (viewPane, config) ->
+    viewPane.append $ '<h3>My Games</h3>'
+    $.ajax '/test',
+        complete: ->
+            console.log 'request completed'
 

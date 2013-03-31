@@ -1,16 +1,12 @@
 ViewPane = Loader.require 'views/ViewPane'
 Router = Loader.require 'routes/Router'
+VH = Loader.require 'views/Helper'
 $ = Loader.require 'jQuery'
 _ = Loader.require 'underscore'
 
 makeNewGamesList = (items) ->
-    ul = $ '<ul>'
-    _.each items, (type) ->
-        li = $ "<li><a href='#'>New #{type} game</a></li>"
-        li.on 'click', ->
-            Router.goTo 'newGame', type
-        ul.append li
-    ul
+    links = (VH.makeLink("New #{type}", 'newGame', type) for type in items)
+    VH.makeList links
 
 Loader.register 'views/dashboard', (viewPane, config) ->
     gameTypes = config.gameTypes or []
@@ -22,6 +18,6 @@ Loader.register 'views/dashboard', (viewPane, config) ->
     myGamesPane = $ '<div>'
     myGamesConfig =
         activeGames: activeGames
-    ViewPane.render 'dashboard/myGames', myGamesConfig, myGamesPane
+    ViewPane.renderSub 'dashboard/myGames', myGamesConfig, myGamesPane
     viewPane.append myGamesPane
 
