@@ -7,7 +7,7 @@ module.exports =
             password: req.body.password
         mongo.insert 'users', user, (err) ->
             if not err
-                res.send 'ok'
+                res.redirect "#registered"
             else
                 res.send "Couldn't register: #{err}"
 
