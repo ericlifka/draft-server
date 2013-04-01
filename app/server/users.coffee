@@ -1,6 +1,11 @@
 mongo = require './mongo'
 
 module.exports =
+    whoAmI: (req, res) ->
+        res.set 'Content-Type', 'application/json'
+        res.send
+            username: req.user
+
     register: (req, res) ->
         user =
             username: req.body.username
