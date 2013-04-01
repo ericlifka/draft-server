@@ -2,10 +2,6 @@ ViewPane = Loader.require 'views/ViewPane'
 VH = Loader.require 'views/Helper'
 $ = Loader.require 'jQuery'
 
-makeNewGamesList = (items) ->
-    links = (VH.makeLink("New #{type}", 'newGame', type) for type in items)
-    VH.makeList links
-
 loadUser = (target) ->
     $.ajax '/user',
         error: -> (req, status, error) ->
@@ -22,7 +18,7 @@ Loader.register 'views/dashboard', (viewPane, config) ->
     loadUser welcomeDiv
 
     viewPane.append $ '<h1>Dashboard</h1>'
-    viewPane.append makeNewGamesList gameTypes
+    viewPane.append VH.makeLink "New Game", 'newGame'
 
     myGamesPane = $ '<div>'
     myGamesConfig =
