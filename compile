@@ -1,2 +1,2 @@
 #!/bin/sh
-node_modules/coffee-script/bin/coffee --watch --output app/public/javascript --compile app/public/coffee
+node_modules/.bin/coffee --watch --output app/public/javascript --compile app/public/coffee
